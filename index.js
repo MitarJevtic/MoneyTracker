@@ -114,7 +114,7 @@ app.post('/edit',function(req, res) {
 app.get('/charts',function(req, res) {
  
      
-    db.query("SELECT main_cat, SUM(main_sum) as total_main_sum FROM main GROUP BY(main_cat) ", function(err, result) { //sabira kolonu sum i pravi novo polje
+    db.query("SELECT main_cat,MONTHNAME(main_date) as month, SUM(main_sum) as total_main_sum FROM main GROUP BY(main_cat) ", function(err, result) { //sabira kolonu sum i pravi novo polje
 
         if (err) {
             throw err;
@@ -126,6 +126,25 @@ app.get('/charts',function(req, res) {
       }
     })
 })
+
+
+
+app.get('/charts2',function(req, res) {
+ 
+     
+    db.query("SELECT MONTHNAME(main_date) as month, SUM(main_sum) as total FROM main GROUP BY(month) ", function(err, result) { //sabira kolonu sum i pravi novo polje
+
+        if (err) {
+            throw err;
+        } else {
+           
+            console.log(result)
+           
+            res.json(result);
+      }
+    })
+})
+
 
 
 

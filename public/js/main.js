@@ -122,9 +122,7 @@ $(document).ready( function () {
 //chartovi
 
 $('#showCharts').on('click', function(event) {
-
  
-    
       $.ajax({
          type: 'get',
          contentType: 'application/json',
@@ -137,9 +135,30 @@ $('#showCharts').on('click', function(event) {
              });
              console.log('=============');
              console.log(arr);
-             chart.data = arr;
+            // chart.data = arr;
              chart2.data = arr;
            }
      });
   });
+
+
+  $('#showCharts').on('click', function(event) {
+ 
+    $.ajax({
+       type: 'get',
+       contentType: 'application/json',
+       url: 'http://localhost:3000/charts2',
+       success: function(response) {
+          let arr =  [];
+          response.forEach(element => {
+            
+              arr.push(element);
+           });
+           console.log('=============');
+           console.log(arr);
+           chart.data = arr;
+          // chart2.data = arr;
+         }
+   });
+});
   
