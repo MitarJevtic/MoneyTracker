@@ -126,7 +126,7 @@ $('#showCharts').on('click', function(event) {
       $.ajax({
          type: 'get',
          contentType: 'application/json',
-         url: 'http://localhost:3000/charts',
+         url: 'http://localhost:3000/chartsDesni',
          success: function(response) {
             let arr =  [];
             response.forEach(element => {
@@ -147,7 +147,7 @@ $('#showCharts').on('click', function(event) {
     $.ajax({
        type: 'get',
        contentType: 'application/json',
-       url: 'http://localhost:3000/charts2',
+       url: 'http://localhost:3000/chartsLevi',
        success: function(response) {
           let arr =  [];
           response.forEach(element => {
