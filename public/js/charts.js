@@ -105,6 +105,14 @@ chart.cursor = new am4charts.XYCursor();
 
 
 
+//chart balance
+
+
+
+
+
+
+
 
 
 

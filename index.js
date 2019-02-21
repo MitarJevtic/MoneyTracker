@@ -114,7 +114,7 @@ app.post('/edit',function(req, res) {
 app.get('/chartsDesni',function(req, res) {
  
      
-    db.query("SELECT main_cat,MONTHNAME(main_date) as month, SUM(main_sum) as total_main_sum FROM main GROUP BY(main_cat) ", function(err, result) { //sabira kolonu sum i pravi novo polje
+    db.query("SELECT main_cat,MONTHNAME(main_date) as month, SUM(main_sum) as total_main_sum FROM main GROUP BY(main_cat)  ", function(err, result) { //sabira kolonu sum i pravi novo polje
 
         if (err) {
             throw err;
@@ -132,7 +132,7 @@ app.get('/chartsDesni',function(req, res) {
 app.get('/chartsLevi',function(req, res) {
  
      
-    db.query("SELECT MONTHNAME(main_date) as month, SUM(main_sum) as total FROM main GROUP BY(month) ", function(err, result) { //sabira kolonu sum i pravi novo polje
+    db.query("SELECT MONTHNAME(main_date) as month, SUM(main_sum) as total FROM main   GROUP BY(month) ", function(err, result) { //sabira kolonu sum i pravi novo polje
 
         if (err) {
             throw err;
@@ -144,6 +144,22 @@ app.get('/chartsLevi',function(req, res) {
       }
     })
 })
+
+app.get('/chartsBalance',function(req, res) {
+ 
+     
+     db.query ('SELECT (SELECT  sum(main_sum) from moneytracker.main WHERE main_cat LIKE "%Salary%") - (SELECT sum(main_sum) from moneytracker.main WHERE main_cat NOT LIKE "%Salary%"  ) AS balance' , function(err, result) { 
+
+        if (err) {
+            throw err;
+        } else {
+           
+            console.log(result)
+           
+            res.json(result);
+      }
+    })
+});
 
 
 

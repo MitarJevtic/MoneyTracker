@@ -161,4 +161,20 @@ $('#showCharts').on('click', function(event) {
          }
    });
 });
+
+$('#showBalance').on('click', function(event) {
+ 
+  $.ajax({
+     type: 'get',
+     contentType: 'application/json',
+     url: 'http://localhost:3000/chartsBalance',
+     success: function(response) {
+
+     
+     
+      $('#Salary').text(response[0].balance);//selektuje div sa id salary i posto je niz gadja njegov index 0
+       }
+     
+ });
+});
   
