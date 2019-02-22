@@ -54,7 +54,7 @@ $(document).ready( function () {
 
 
                 $('#editModal').modal('hide')
-                $("#myTable tbody tr").on('click',function() {
+                $(document).on('click','#myTable tbody tr',function() {
                     var row = table.row();
                     var rowData = table.row( this ).data(); 
                    

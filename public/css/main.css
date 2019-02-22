@@ -234,3 +234,13 @@ button.save:hover {
   background-color: #916a41;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+#main_cat{
+background-color: #dbc2ae;
+}
+div textarea.color{
+    background-color: #dbc2ae;
+}
+div input.color{
+    background-color: #dbc2ae;
+}
