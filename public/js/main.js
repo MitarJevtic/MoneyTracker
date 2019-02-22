@@ -28,7 +28,20 @@ $(document).ready( function () {
                             console.log('success');
                             console.log(JSON.stringify(data));
                             }
+                            
                       });
+
+                      if(data.number==0){
+
+                        window.alert("All fields must be filled");
+                        
+                        event.stopPropagation();
+                        
+                        return;
+                        
+                        
+                        }
+
                       window.location.href = "http://localhost:3000/";
                   })
 
@@ -172,9 +185,23 @@ $('#showBalance').on('click', function(event) {
 
      
      
-      $('#Salary').text(response[0].balance);//selektuje div sa id salary i posto je niz gadja njegov index 0
+      $('#Salary').slideToggle("slow").text('The balance on your acount is :'+ response[0].balance);//selektuje div sa id salary i posto je niz gadja njegov index 0
        }
      
  });
 });
   
+
+$('#myTable').DataTable({
+            
+  "createdRow": function( row, data, dataIndex ) {
+      if ( data["2"] == "Salary" ) {
+          $( row ).css( "background-color", "#5cb85c" );
+      } else{
+          $( row ).css( "background-color", "#E04A4A" );
+      }
+
+  },
+ 
+
+});
