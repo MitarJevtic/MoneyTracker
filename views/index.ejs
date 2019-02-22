@@ -29,7 +29,7 @@
     
     <div class=" margin-5-percent">
         <div class="header text-center header-margin">
-            <h1>Money Tracker Application</h1>
+            <h1 class ="display-2">Money Tracker Application</h1>
         </div>
 
         <div class="row margin-bottom">
@@ -64,7 +64,7 @@
                             <textarea class="form-control" rows="5" id="main_com" name="main_com"></textarea>
                         </div>
                     </div>
-                    <div class="text-center col-10">
+                    <div class="text-center col-10 btn-group" role = "group" aria-label>
                         <button id="addRow" type="button" class="btn btn-primary">Add a new expense</button>
                         <button onclick="myFunction()" id="addCat" type="button" class="btn btn-primary">Add a new category</button>
                     </div>
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id = "save1">Save changes</button>
+                                <button type="button" class="btn btn-primary save" id = "save1">Save changes</button>
                                 <button id="deleteRow" type="button" class="btn btn-danger">Delete</button>
                                 </div>
                                 </form>
@@ -188,7 +188,7 @@
                 <table id="myTable" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th class='d-none'>Id</th>
                             <th>Date</th>
                             <th>Category</th>
                             <th>Sum</th>
@@ -198,7 +198,7 @@
                     <tbody>
                         <% main.forEach(function(main) { %>
                             <tr>
-                                <td><%= main.main_id %></td>
+                                <td class='d-none'><%= main.main_id %></td>
                                 <td><%= main.main_date.toISOString().slice(0,10) %></td>
                                 <td><%= main.main_cat %></td>
                                 <td><%= main.main_sum %></td>
@@ -215,7 +215,8 @@
         </div>
 
     </div><!-- end-jumbotron -->
-  
+    <div class="footer-copyright text-center py-3">© 2019 made by Creative Tim for a better web
+    </div>
 
     <script src="../js/main.js"></script>
     <script src="js/charts.js"></script>

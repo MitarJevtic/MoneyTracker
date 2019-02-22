@@ -195,7 +195,7 @@ $('#showBalance').on('click', function(event) {
 $('#myTable').DataTable({
             
   "createdRow": function( row, data, dataIndex ) {
-      if ( data["2"] == "Salary" ) {
+      if ( data["2"] == "Salary" ) {//2 je index kategorije u tabeli
           $( row ).css( "background-color", "#5cb85c" );
       } else{
           $( row ).css( "background-color", "#E04A4A" );
